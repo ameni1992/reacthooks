@@ -5,7 +5,8 @@ import './App.css'
 import AddMovie from './Components/AddMovie';
 import Filter from './Components/Filter';
 import Star from './Components/Star';
-
+import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
+import MovieTrailer from './Components/MovieTrailer';
 
 const App=()=>{
   // the state should be in the js app to allow us make chages// 
@@ -14,24 +15,36 @@ const App=()=>{
   const[search,setSearch]=useState("")
   const Add =(newMovie)=>{setMovie([...movie,newMovie]);
   };
-  // rating star function
-  const[rating,setRating]=useState('')
-  const handleChange=(newRating)=>{
-    setRating(newRating);
-  }
   
   return (
-    //bech n3adi movie comme props lel MovieList//
-    //movie howa el getter bech yjibelna e tableau eli fih  datamovie
+    
+    <Router>
+      <h1  className="watch"> WATCH NOW   </h1>
     <div>
       <div className="navbar">
-      <Filter setSearch={setSearch} handleChange={handleChange} />
+        <h3> <Link to="/"> HOME </Link></h3>
+      <Filter setSearch={setSearch}  />
       <AddMovie Add= {Add} />
       </div>
+      <Switch>
+<Route exact path="/">
 
-      <MovieList movie={movie} search={search}  rating= {rating} />
-      
+     <MovieList movie={movie} search={search}   />
+     </Route>
+{movie.map(el=><Route path={`/details/${el.id}`}><MovieTrailer
+name={el.name}
+trailer={el.trailer}
+description={el.description}
+rating={el.rating}
+/>
+</Route>)}
+</Switch>
+<footer>
+<h5> Best Movies @2021</h5>
+</footer>
+
     </div>
+    </Router>
   );
 };
     

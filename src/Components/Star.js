@@ -2,8 +2,8 @@
 import ReactStars from "react-rating-stars-component";
 import React from "react"; 
 
-const star = (newRating) => {
-console.log(newRating)
+const star = ({newRating}) => {
+
     
        
       return(

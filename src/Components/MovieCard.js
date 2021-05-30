@@ -1,8 +1,10 @@
 import React from 'react'
 import {Card}from 'react-bootstrap'
+import {Link} from "react-router-dom";
 const MovieCard=({movie}) =>{
     return (
-        <div className="poster">
+      <div className="poster">
+        <Link to={`/details/${movie.id}`}>
          <Card style={{ width: '18rem' }}>
   <Card.Img variant="top" src={movie.image} />
   <Card.Body>
@@ -17,9 +19,11 @@ const MovieCard=({movie}) =>{
     </Card.Text>
     <Card.Text>
      <h5 >Date: {movie.date}</h5>
-    </Card.Text>  
+    </Card.Text> 
+    
   </Card.Body>
-</Card>  
+</Card> 
+</Link> 
         </div>
     );
 };

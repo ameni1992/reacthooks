@@ -1,6 +1,7 @@
 *{
   background-color: rgb(228, 124, 124);
-}
+  text-decoration: none;
+} 
 
   
 .list{
@@ -30,5 +31,16 @@ form{
 margin: 20px;
 }
 .byn{
-  background-color: white;
+  background-color:wheat;
 }
+.Details{
+  justify-content: center;
+  text-align: center;
+width: 80%;
+margin: auto;
+padding: 20px;}
+.watch{
+  text-align: center;
+}
+
+
